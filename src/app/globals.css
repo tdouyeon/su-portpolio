@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --star-size-min: 2px;
+  --star-size-max: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +19,51 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "SCDream3";
+}
+
+.bold {
+  font-family: "SCDream9";
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: moveUp 50s linear infinite, twinkling 1s linear infinite;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0vh);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes twinkling {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@font-face {
+  font-family: "SCDream3";
+  src: url("/fonts/SCDream3.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "SCDream9";
+  src: url("/fonts/SCDream9.woff2") format("truetype");
 }
