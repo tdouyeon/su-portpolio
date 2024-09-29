@@ -1,13 +1,10 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { getWindowSize } from "../hooks/getWindowSize";
+import { motion } from "framer-motion";
 import StartBackground from "@/components/StarBackground";
 import MobiusStrip from "@/components/MobiusStrip";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
-  const { width } = getWindowSize();
   // const { scrollYProgress } = useScroll();
 
   const buttonCompo = (url: string, text: string) => {
@@ -28,56 +25,27 @@ export default function Home() {
   // };
 
   return (
-    <main
-      className={`flex flex-col items-center justify-center min-h-screen bg-black ${
-        width > 760 ? "p-12" : "p-0"
-      }`}
-    >
+    <main className="flex flex-col items-center justify-center min-h-screen bg-black p-0 md:p-12">
       <StartBackground />
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          flexDirection: width > 760 ? "row" : "column",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingLeft: 100,
-          paddingRight: 100,
-        }}
-      >
+      <div className="w-screen h-screen flex justify-center items-center px-24 flex-col md:flex-row">
         <MobiusStrip />
-        <div style={{ textAlign: width > 760 ? "left" : "center" }}>
-          <div
-            className={`font-bold text-gray-200 ${
-              width > 760 ? "text-8xl" : "text-5xl"
-            } mt-0 mb-3 bold`}
-          >
+        <div className="text-center md:text-left">
+          <div className="font-bold text-gray-200 text-5xl md:text-8xl mt-0 mb-3 bold">
             LEE SU YEON
           </div>
-          <div
-            className={`font-bold text-gray-200 ${
-              width > 760 ? "text-8xl" : "text-5xl"
-            } mt-0 mb-0 bold`}
-          >
+          <div className="font-bold text-gray-200 text-5xl md:text-8xl mt-0 mb-0 bold">
             PORTFOLIO
           </div>
         </div>
       </div>
 
-      <div className={`bg-white p-8 rounded-lg w-[80vw] max-w-[800px]`}>
+      <div className="bg-white p-8 rounded-lg w-[80vw] max-w-[800px]">
         <h2 className="text-4xl bold text-gray-900 mb-4 text-center">∞INTRO</h2>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: width > 760 ? "row" : "column",
-            alignItems: "center",
-          }}
-        >
+        <div className="flex flex-col md:flex-row items-center">
           <Image
             src={require("../../public/images/cat.jpeg")}
             alt="cat"
-            className={`rounded-[50%] w-[250px] ${width > 760 && "mr-20"} mb-5`}
+            className="rounded-[50%] w-[250px] md:mr-20 mb-5"
           />
           <div className="flex flex-col">
             {buttonCompo(
