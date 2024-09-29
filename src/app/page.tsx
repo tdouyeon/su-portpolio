@@ -13,12 +13,12 @@ export default function Home() {
   const buttonCompo = (url: string, text: string) => {
     return (
       <motion.a
-        className="h-[50px] bg-gray-900 text-white flex items-center pl-5 rounded-2xl shadow-lg mt-2 hover:bg-[#ff047e]"
+        className="w-[70vw] max-w-[400px] h-[50px] bg-gray-900 text-white flex items-center pl-5 rounded-2xl shadow-lg mt-2 hover:bg-[#ff047e]"
         whileHover={{ scale: 1.05 }}
+        href={url}
+        target="_blank"
       >
-        <Link href={url} target="_blank" className="w-[70vw] max-w-[400px]">
-          {text}
-        </Link>
+        {text}
       </motion.a>
     );
   };
@@ -91,7 +91,7 @@ export default function Home() {
         <p className="text-gray-600 text-xl leading-relaxed pt-10">
           안녕하세요, 프론트엔드 개발자 이수연입니다. 끊임없이 배우고 생각한
           것을 구현하는 것에 대해 매력을 느껴 개발 공부를 시작하게 되었습니다.
-          뫼비우스의 띠처럼 끝없이 새로운 것들을 배우고 구현해내고 싶습니다.
+          앞으로도 끝없이 새로운 것들을 배우고 구현해내고 싶습니다.
         </p>
       </div>
       {/* <div style={{ width: "100%", display: "flex" }}>
