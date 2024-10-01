@@ -5,6 +5,64 @@ import StartBackground from "@/components/StarBackground";
 import MobiusStrip from "@/components/MobiusStrip";
 import Image from "next/image";
 import Modal from "@/components/Modal";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Keyboard, Pagination, Navigation } from "swiper/modules";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "./globals.css";
+
+const cardsData = [
+  {
+    title: "HTML/CSS",
+    content:
+      "HTML5와 CSS3에 능숙하며, 시멘틱 마크업을 사용하여 웹 페이지의 구조를 명확하게 설계할 수 있습니다. 반응형 디자인을 구현하기 위해 Flexbox를 능숙하게 사용하며, 다양한 브라우저와 기기에서 일관된 사용자 경험을 제공합니다. 실제로 개인 포트폴리오 웹사이트를 개발하면서, 다양한 CSS 프레임워크(Bootstrap, Tailwind CSS)를 사용해 본 경험이 있습니다.",
+  },
+  {
+    title: "JAVASCRIPT",
+    content:
+      "JavaScript에 대한 깊은 이해를 가지고 있으며, ES6 이상의 최신 문법을 능숙하게 사용합니다. 비동기 프로그래밍(Async/Await, Promises)에 대한 경험이 있으며, DOM 조작 및 이벤트 핸들링에 능숙합니다. 실제 프로젝트에서는 JavaScript를 사용해 동적인 웹 애플리케이션을 개발했으며, AJAX를 통해 서버와의 데이터 통신을 원활하게 처리한 경험이 있습니다.",
+  },
+  {
+    title: "REACT NATIVE",
+    content:
+      "React Native를 사용하여 iOS와 Android 플랫폼에서 작동하는 모바일 애플리케이션을 개발한 경험이 있습니다. 컴포넌트 기반 아키텍처와 상태 관리 라이브러리(Redux)에 능숙합니다. 개인 프로젝트로 영단어 애플리케이션을 개발하여, 사용자 인터페이스를 개선하고 사용자 경험을 최적화하는 데 중점을 두었습니다.",
+  },
+  {
+    title: "NEXT JS",
+    content:
+      "API Routes를 통해 서버리스 API를 만들고, 파일 기반 라우팅으로 효율적으로 페이지를 관리한 경험이 있습니다. 또한 CSS 모듈을 사용하여 각 컴포넌트에 독립적인 스타일을 적용하며, Vercel을 통해 애플리케이션을 배포하는 데 능숙합니다.",
+  },
+];
+
+const projectData = [
+  {
+    title: "영단어 앱",
+    skills: ["React Native", "NodeJS", "Type Script", "SQLite"],
+    duration: "2024-09 ~ 2024-09",
+    content:
+      "여러 영단어 어플들을 써보면서 있으면 좋겠다고 생각했던 기능 2가지를 추가해본 어플입니다. 기본적으로 단어, 카테고리 관련 추가/수정/삭제, 발음 재생 기능이 있고, 여기에 더해서 단어 리스트의 필터 기능, 네이버 사전 검색 기능을 추가 하였습니다.",
+    images: ["englishApp1", "englishApp2", "englishApp3", "englishApp4"],
+  },
+  {
+    title: "네스티(채팅 앱)",
+    skills: ["React Native", "Firebase"],
+    duration: "2024-03 ~ 2024-03",
+    content:
+      "기본적인 채팅 어플을 구현하였습니다. Firebase Firestore를 통해 회원가입, 로그인, 채팅, 메시지 전송 기능을 구현했으며, Context API를 사용하여 사용자 로그인 정보를 프로필에 노출하였습니다.",
+    images: ["chat1", "chat2", "chat3", "chat4"],
+  },
+  {
+    title: "포트폴리오 사이트",
+    skills: ["Next JS", "tailwind"],
+    duration: "2024-09 ~ 2024-09",
+    content:
+      "현재 보고 계신 사이트입니다. next js와 관련 라이브러리 tailwind를 사용해서 구현했으며, vercel로 배포하였습니다.",
+    images: ["portfolio1", "portfolio2", "portfolio3", "portfolio4"],
+  },
+];
 
 export default function Home() {
   // const { scrollYProgress } = useScroll();
@@ -27,28 +85,6 @@ export default function Home() {
     );
   };
 
-  const cardsData = [
-    {
-      title: "HTML/CSS",
-      content:
-        "HTML5와 CSS3에 능숙하며, 시멘틱 마크업을 사용하여 웹 페이지의 구조를 명확하게 설계할 수 있습니다. 반응형 디자인을 구현하기 위해 Flexbox를 능숙하게 사용하며, 다양한 브라우저와 기기에서 일관된 사용자 경험을 제공합니다. 실제로 개인 포트폴리오 웹사이트를 개발하면서, 다양한 CSS 프레임워크(Bootstrap, Tailwind CSS)를 사용해 본 경험이 있습니다.",
-    },
-    {
-      title: "JAVASCRIPT",
-      content:
-        "JavaScript에 대한 깊은 이해를 가지고 있으며, ES6 이상의 최신 문법을 능숙하게 사용합니다. 비동기 프로그래밍(Async/Await, Promises)에 대한 경험이 있으며, DOM 조작 및 이벤트 핸들링에 능숙합니다. 실제 프로젝트에서는 JavaScript를 사용해 동적인 웹 애플리케이션을 개발했으며, AJAX를 통해 서버와의 데이터 통신을 원활하게 처리한 경험이 있습니다.",
-    },
-    {
-      title: "REACT NATIVE",
-      content:
-        "React Native를 사용하여 iOS와 Android 플랫폼에서 작동하는 모바일 애플리케이션을 개발한 경험이 있습니다. 컴포넌트 기반 아키텍처와 상태 관리 라이브러리(Redux)에 능숙합니다. 개인 프로젝트로 영단어 애플리케이션을 개발하여, 사용자 인터페이스를 개선하고 사용자 경험을 최적화하는 데 중점을 두었습니다.",
-    },
-    {
-      title: "NEXT JS",
-      content:
-        "API Routes를 통해 서버리스 API를 만들고, 파일 기반 라우팅으로 효율적으로 페이지를 관리한 경험이 있습니다. 또한 CSS 모듈을 사용하여 각 컴포넌트에 독립적인 스타일을 적용하며, Vercel을 통해 애플리케이션을 배포하는 데 능숙합니다.",
-    },
-  ];
   // const customMove = (direction: string, start: number, end: number) => {
   //   let directionWidth = direction == "left" ? -width : width;
   //   return useTransform(scrollYProgress, [start, end], [0, directionWidth]);
@@ -131,8 +167,59 @@ export default function Home() {
         />
       )}
       <div className="mt-40 rounded-lg w-[80vw] max-w-[800px]">
-        <h2 className="text-4xl bold text-white mb-4 text-center">∞PROJECTS</h2>
+        <h2 className="text-4xl bold text-white text-center mb-10">
+          ∞PROJECTS
+        </h2>
+        {projectData.map((data, index) => (
+          <div className="flex mt-10" key={index}>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              keyboard={{
+                enabled: true,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Keyboard, Pagination, Navigation]}
+              loop={true}
+              className="mySwiper w-[400px]"
+            >
+              {data.images.map((image, imageIndex) => (
+                <SwiperSlide
+                  key={imageIndex}
+                  className="flex justify-center items-center text-[18px]"
+                >
+                  <Image
+                    src={require(`../../public/images/${image}.png`)}
+                    alt={image}
+                    className="min-w-[200px] h-[400px] object-contain"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="min-w-48 max-w-[48%] min-h-40 flex flex-col items-center justify-center text-white font-bold rounded-lg shadow-lg mb-3 ml-3 p-5">
+              <div className="flex justify-between w-full flex-col lg:flex-row">
+                <div className="text-xl bold">{data.title}</div>
+                <div className="text-gray-400">{data.duration}</div>
+              </div>
+              <div className="flex flex-wrap  w-[100%] mt-1">
+                {data.skills.map((skill, skillsIndex) => (
+                  <div
+                    key={skillsIndex}
+                    className="rounded-lg bg-[#D2E0FB] p-1 text-black text-sm mr-2 mb-1"
+                  >
+                    {skill}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-2">{data.content}</div>
+            </div>
+          </div>
+        ))}
       </div>
+      <ScrollToTopButton />
     </main>
   );
 }

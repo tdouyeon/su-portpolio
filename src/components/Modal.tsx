@@ -14,7 +14,7 @@ const Modal = ({
       <div className="bg-white rounded-lg p-10 w-96 relative overflow-visible">
         <button
           onClick={onClose}
-          className="absolute top-2 -right-10 sm:-right-11  bg-black rounded-full w-10 h-10 flex items-center justify-center transition duration-200"
+          className="absolute top-2 -right-10 sm:-right-11 w-10 h-10 flex items-center justify-center transition duration-200"
         >
           <span className="text-white text-lg">X</span>
         </button>

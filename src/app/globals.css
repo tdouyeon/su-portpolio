@@ -33,6 +33,31 @@ body {
   animation: moveUp 50s linear infinite, twinkling 1s linear infinite;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: #d2e0fb; /* 원하는 색상으로 변경 (예: tomato 색상) */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #d2e0fb; /* Hover 시 색상 변경 */
+}
+
+.swiper-pagination-bullet {
+  background: #cccccc; /* 점의 기본 색상 */
+  width: 7px; /* 점의 너비 */
+  height: 7px; /* 점의 높이 */
+  opacity: 1; /* 투명도 설정 */
+  border-radius: 50%; /* 원형 점 */
+}
+
+/* 현재 활성화된 페이지네이션 점 */
+.swiper-pagination-bullet-active {
+  background: #d2e0fb; /* 활성화된 점의 색상 (토마토 색상) */
+  width: 10px; /* 활성화된 점의 크기 */
+  height: 10px;
+}
+
 @keyframes moveUp {
   0% {
     transform: translateY(0vh);
