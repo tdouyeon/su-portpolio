@@ -65,8 +65,6 @@ const projectData = [
 ];
 
 export default function Home() {
-  // const { scrollYProgress } = useScroll();
-  const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<{
     title: string;
     content: string;
@@ -84,11 +82,6 @@ export default function Home() {
       </motion.a>
     );
   };
-
-  // const customMove = (direction: string, start: number, end: number) => {
-  //   let directionWidth = direction == "left" ? -width : width;
-  //   return useTransform(scrollYProgress, [start, end], [0, directionWidth]);
-  // };
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-black p-0 md:p-12">
