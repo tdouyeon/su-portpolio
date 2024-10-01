@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-require-imports */
 import { motion, useInView } from "framer-motion";
 import { useState, useRef } from "react";
 import StartBackground from "@/components/StarBackground";

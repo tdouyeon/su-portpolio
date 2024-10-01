@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-require-imports */
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
